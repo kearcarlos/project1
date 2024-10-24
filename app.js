@@ -19,5 +19,21 @@ let lista = [
 
 app.get('/', (req, res) => res.send('Hello Upgrad v2 :)'));
 
+app.get("/lista", (req, res) => {
+  let frontend = `<div id="print" style="display: flex; flex-wrap: wrap">`;
+  for (let i = 0; i < lista.length; i++) {
+    frontend += `
+    <div class="card" style="width: 10%; border: 2px black solid; margin: 5px; text-align: center">
+    <h1>${lista[i].nombre}</h1>
+    <p>${lista[i].funcionalidad}</p>
+    <p>${lista[i].caracteristicas}</p>
+    </div>`;
+  }
+  frontend += `</div>`;
+  res.send(frontend);
+});
+
+
+
 app.listen(port);
 console.log(`App running on http://localhost:${port}`);
