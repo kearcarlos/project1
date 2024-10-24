@@ -34,6 +34,12 @@ app.get("/hola", (req, res) => {
 });
 
 
+app.get("/contacto/:about", (req, res) => {
+  let parametro = req.params.about;
+  res.send(`<h1>Hola ${parametro}</h1>`);
+});
+
+
 
 
 app.listen(port);
